@@ -4,14 +4,14 @@
 
 ```javascript
 function call(Fn, thisArg, ...args) {
-	if (thisArg === undefined || thisArg === null) {
-		obj = globalThis;
-	}
+    if (thisArg === undefined || thisArg === null) {
+        obj = globalThis;
+    }
 
-	thisArg.temp = Fn;
-	let result = thisArg.temp(...args);
-	delete thisArg.temp;
-	return result;
+    thisArg.temp = Fn;
+    let result = thisArg.temp(...args);
+    delete thisArg.temp;
+    return result;
 }
 ```
 
@@ -19,13 +19,13 @@ function call(Fn, thisArg, ...args) {
 
 ```javascript
 function apply(Fn, thisArg, args) {
-	if (thisArg === undefined || thisArg === null) {
-		obj = globalThis;
-	}
+    if (thisArg === undefined || thisArg === null) {
+        obj = globalThis;
+    }
 
-	thisArg.temp = Fn;
-	let result = thisArg.temp(...args);
-	delete thisArg.temp;
-	return result;
+    thisArg.temp = Fn;
+    let result = thisArg.temp(...args);
+    delete thisArg.temp;
+    return result;
 }
 ```
