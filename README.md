@@ -29,3 +29,14 @@ function apply(Fn, thisArg, args) {
     return result;
 }
 ```
+
+## bind
+
+```javascript
+function bind(Fn, thisArg, ...args) {
+    return function(...args2) {
+        // 调用call函数
+        return call(Fn, thisArg, ...args, ...args2);
+    }
+}
+```
