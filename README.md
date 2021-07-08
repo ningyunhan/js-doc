@@ -41,6 +41,12 @@ function bind(Fn, thisArg, ...args) {
 }
 ```
 
+<br/>
+<br/>
+<br/>
+
+# 函数防抖和节流
+
 ## 函数节流(throttle)
 ```javascript
 function throttle(callback, wait) {
@@ -68,5 +74,24 @@ function debounce(callback, time) {
             timeId = null;
         }, time);
     }
+}
+```
+
+<br/>
+<br/>
+<br/>
+
+# 数组相关API函数
+
+## map
+```javascript
+function map(arr, callback) {
+    const res = [];
+    for(let i = 0; i < arr.length; i++) {
+        res.push(
+            callback(arr[i], i)
+        );
+    }
+    return res;
 }
 ```
