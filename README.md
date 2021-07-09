@@ -107,3 +107,17 @@ function reduce(arr, callback, initialValue) {
     return result;
 }
 ```
+
+## filter
+```javascript
+function filter(arr, callback) {
+    const res = [];
+    for(let i = 0; i < arr.length; i++) {
+        let temp = callback(arr[i], i);
+        if(temp) {
+            res.push(arr[i]);
+        }
+    }
+    return res;
+}
+```
