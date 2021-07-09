@@ -49,6 +49,10 @@ function bind(Fn, thisArg, ...args) {
 
 ## 函数节流(throttle)
 ```javascript
+/*
+ * @param {Function} callback
+ * @param {Number} time
+*/
 function throttle(callback, wait) {
     let start = 0;
     return function(e) {
@@ -63,6 +67,10 @@ function throttle(callback, wait) {
 
 ## 函数防抖(debounce)
 ```javascript
+/*
+ * @param {Function} callback
+ * @param {Number} time
+*/
 function debounce(callback, time) {
     let timeId = null;
     return function(e) {
@@ -85,6 +93,10 @@ function debounce(callback, time) {
 
 ## map
 ```javascript
+/*
+ * @param {Array} arr
+ * @param {Function} callback
+*/
 function map(arr, callback) {
     const res = [];
     for(let i = 0; i < arr.length; i++) {
@@ -98,6 +110,11 @@ function map(arr, callback) {
 
 ## reduce 
 ```javascript
+/*
+ * @param {Array} arr
+ * @param {Function} callback
+ * @param {Any} initialValue
+*/
 function reduce(arr, callback, initialValue) {
     let startIndex = initialValue === undefined ? 1 : 0;
     let result = initialValue === undefined ? arr[0] : initialValue;
@@ -110,6 +127,10 @@ function reduce(arr, callback, initialValue) {
 
 ## filter
 ```javascript
+/*
+ * @param {Array} arr
+ * @param {Function} callback
+*/
 function filter(arr, callback) {
     const res = [];
     for(let i = 0; i < arr.length; i++) {
@@ -119,5 +140,35 @@ function filter(arr, callback) {
         }
     }
     return res;
+}
+```
+
+## find
+```javascript
+/*
+ * @param {Array} arr
+ * @param {Function} callback
+*/
+function find(arr, callback) {
+    for(let i = 0; i < arr.length; i++) {
+        let res = callback(arr[i], i);
+        if(res) return arr[i];
+    }
+    return undefined;
+}
+```
+
+## findIndex
+```javascript
+/*
+ * @param {Array} arr
+ * @param {Function} callback
+*/
+function findIndex(arr, callback) {
+    for(let i = 0; i < arr.length; i++) {
+        let res = callback(arr[i], i);
+        if(res) return i;
+    }
+    return -1;
 }
 ```
