@@ -95,3 +95,15 @@ function map(arr, callback) {
     return res;
 }
 ```
+
+## reduce 
+```javascript
+function reduce(arr, callback, initialValue) {
+    let startIndex = initialValue === undefined ? 1 : 0;
+    let result = initialValue === undefined ? arr[0] : initialValue;
+    for(let i = startIndex; i < arr.length; i++) {
+        result = callback(result, arr[i], i, arr);
+    }
+    return result;
+}
+```
