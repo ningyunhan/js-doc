@@ -172,3 +172,26 @@ function findIndex(arr, callback) {
     return -1;
 }
 ```
+
+## every and some
+```javascript
+/*
+ * @param {Array} arr
+ * @param {Function} callback
+*/
+function every(arr, callback) {
+    for(let i = 0; i < arr.length; i++) {
+        if(!callback(arr[i], i)){
+            return false;
+        }
+    }
+    return true;
+}
+
+function some(arr, callback) {
+    for(let i = 0; i < arr.length; i++) {
+        if(callback(arr[i], i)) return true;
+    }
+    return false;
+}
+```
