@@ -195,3 +195,38 @@ function some(arr, callback) {
     return false;
 }
 ```
+
+<br/>
+<br/>
+<br/>
+
+# 数组去重
+
+## unique
+```javascript
+function unique(arr) {
+    const res = [];
+    arr.forEach(function(item) {
+        if(res.indexOf(item) === -1) {
+            res.push(item);
+        }
+    });
+    return res;
+}
+
+function unique2(arr) {
+    const res = [];
+    const container = {};
+    arr.forEach(function(item) {
+        if(container[item] === undefined) {
+            container[item] = true;
+            res.push(item);
+        }
+    });
+    return res;
+}
+
+function unique3(arr) {
+    return [...new Set(arr)];
+}
+```
