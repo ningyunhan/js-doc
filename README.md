@@ -212,6 +212,25 @@ function concat(arr, ...args) {
 }
 ```
 
+## slice
+```javascript
+function slice(arr, begin, end) {
+    const res = [];
+    begin = begin || 0;
+    if(begin > arr.length) return res;
+
+    end = end || arr.length;
+    if(end > begin) end = arr.length;
+
+    for(let i = 0; i < arr.length; i++) {
+        if(i >= begin && i < end) {
+            res.push(arr[i]);
+        }
+    }
+    return arr;
+}
+```
+
 <br/>
 <br/>
 <br/>
