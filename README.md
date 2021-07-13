@@ -265,3 +265,38 @@ function unique3(arr) {
     return [...new Set(arr)];
 }
 ```
+
+<br/>
+<br/>
+<br/>
+
+# 数组扁平化
+
+## flatten1
+```javascript
+/*
+ * @param {Array} arr
+*/
+function flatten1(arr) {
+    const res = [];
+    arr.forEach(function(item) {
+        if(Array.isArray(item)) {
+            const _r = flatten1(item);
+            res = res.concat(_r);
+        }else {
+            res.push(item);
+        }
+    });
+    return res;
+}
+
+function flatten2(arr) {
+    let res = [...arr];
+    while(res.some(item => Array.isArray(item))) {
+        res = [].concat(...res);
+    }
+    return res;
+}
+```
+
+
