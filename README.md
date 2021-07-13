@@ -196,6 +196,22 @@ function some(arr, callback) {
 }
 ```
 
+## concat
+```javascript
+function concat(arr, ...args) {
+    const res = [...arr];
+    args.forEach(function(item) {
+        if(Array.isArray(item)) {
+            res.push(...item)
+        }else {
+            res.push(item);
+        }
+    });
+
+    return res;
+}
+```
+
 <br/>
 <br/>
 <br/>
