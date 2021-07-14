@@ -231,6 +231,76 @@ function slice(arr, begin, end) {
 }
 ```
 
+## chunk
+```javascript
+/*
+ * @param {Array} arr
+ * @param {Number} size
+*/
+function chunk(arr, size) {
+    if(arr.length === 0) return [];
+    let temp = [];
+    const res = [];
+    arr.forEach(function(item) {
+        if(temp.length === 0) {
+            res.push(temp);
+        }
+        temp.push(item);
+
+        if(temp.length === size) {
+            temp = [];
+        }
+    });
+    return res;
+}
+```
+
+## difference
+```javascript
+/*
+ * @param {Array} arr1
+ * @param {Array} arr2
+*/
+function difference(arr1, arr2=[]) {
+    if(arr1.length === 0) return [];
+    if(arr2.length === 0) return [...arr1];
+    return arr1.filter(item => !arr2.includes(item));
+}
+```
+
+## pull
+```javascript
+/*
+ * @param {Array} arr
+ * @param {...any} args
+*/
+function pull(arr, ...args) {
+    const res = [];
+    let index = 
+    for(let i = 0; i < arr.length; i++) {
+        if(args.includes(arr[i])) {
+            res.push(arr[i]);
+            arr.splice(i, 1);
+            i--;
+        }
+    }
+    return res;
+}
+
+function pullAll(arr, args) {
+    const res = [];
+    for(let i = 0; i < arr.length; i++) {
+        if(args.includes(arr[i])) {
+            res.push(arr[i]);
+            arr.splice(i, 1);
+            i--;
+        }
+    }
+    return res;
+}
+```
+
+
 <br/>
 <br/>
 <br/>
