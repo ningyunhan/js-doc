@@ -300,6 +300,23 @@ function pullAll(arr, args) {
 }
 ```
 
+## drop
+```javascript
+/*
+ * @param {Array} arr
+ * @param {Number} size
+*/
+function drop(arr, size) {
+    return arr.filter((value, index) => {
+        return index >= size;
+    });
+}
+
+function dropRight(arr, size) {
+    return arr.filter((value, index) => index <= arr.length - size);
+}
+```
+
 
 <br/>
 <br/>
