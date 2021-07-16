@@ -317,13 +317,6 @@ function dropRight(arr, size) {
 }
 ```
 
-
-<br/>
-<br/>
-<br/>
-
-# 数组去重
-
 ## unique
 ```javascript
 function unique(arr) {
@@ -353,12 +346,6 @@ function unique3(arr) {
 }
 ```
 
-<br/>
-<br/>
-<br/>
-
-# 数组扁平化
-
 ## flatten1
 ```javascript
 /*
@@ -386,4 +373,23 @@ function flatten2(arr) {
 }
 ```
 
+<br/>
+<br/>
+<br/>
+
+# 对象相关API
+
+## new 
+```javascript
+/*
+ * @param {Function} Fn
+ * @param {...any} args
+*/
+function newInstance(Fn, ...args) {
+    const res = {};
+    const temp = Fn.call(res, ...args);
+    res.__proto__ = Fn.proptotype;
+    return temp instanceof Object ? temp : res;
+}
+```
 
