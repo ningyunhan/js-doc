@@ -388,8 +388,25 @@ function flatten2(arr) {
 function newInstance(Fn, ...args) {
     const res = {};
     const temp = Fn.call(res, ...args);
-    res.__proto__ = Fn.proptotype;
+    res.__proto__ = Fn.prototype;
     return temp instanceof Object ? temp : res;
+}
+```
+
+## instanceof
+```javascript
+/*
+ * @param {Object} obj
+ * @param {Function} Fn
+*/
+function myInstanceOf(obj, Fn) {
+    const prototype = Fn.prototype;
+    let proto = obj.__proto__;
+    while(proto) {
+        if(proto === prototype) return true;
+        proto = proto.__proto__;
+    }
+    return false;
 }
 ```
 
