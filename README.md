@@ -410,3 +410,20 @@ function myInstanceOf(obj, Fn) {
 }
 ```
 
+## mergeObject
+```javascript
+function mergeObject(...objs) {
+    const res = {};
+    objs.forEach(function(obj) {
+        Object.keys(obj).forEach(function(key) {
+            if(res.hasOwnProperty(key)) {
+                res[key] = [].concat(res[key], obj[key]);
+            }else {
+                res[key] = obj[key];
+            }
+        });
+    });
+    return res;
+}
+```
+
