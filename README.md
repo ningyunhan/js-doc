@@ -427,3 +427,35 @@ function mergeObject(...objs) {
 }
 ```
 
+## copy
+> shadow copy
+```javascript
+//ES6 Version 
+function copy1(target) {
+    if(typeof target === 'object' && target !== null) {
+        if(Array.isArray(target)) {
+            return [...target];
+        }else {
+            return {...target};
+        }
+    }else {
+        return target;
+    }
+}
+
+// ES5 Version
+function copy2(target) {
+    if(typeof target === 'object' && target !== null) {
+        var res = Array.isArray(target) ? [] : {};
+        for(var key in target) {
+            if(target.hasOwnProperty(key)) {
+                res[key] = target[key];
+            }
+        }
+        return res;
+    }else {
+        return target;
+    }
+}
+```
+
